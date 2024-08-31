@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { render } from '@react-email/render';
-import VerificationEmail from '@/emails/VerificationEmail';
+import VerificationEmail from '@/emails/verificationEmail';
 import React from 'react';
-import { User } from '@/model/User';
+import { User } from '@/models/User';
 import validator from 'validator'
 import dbConnect from '@/lib/dbConnect';
 
@@ -24,9 +24,10 @@ export async function POST(req: NextRequest) {
     }
 
     const verifyCode = Math.floor(100000 +   Math.random() * 900000).toString();
+
     await User.updateOne({ email }, { verifyCode });
 
-    const auth = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       secure: true,
       port: 465,
@@ -36,16 +37,20 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    const emailTemplate = render(<VerificationEmail username={user.userName} otp={verifyCode} />);
+    const verificationUrl = `http://localhost:3000/verify-email?email=${email}/code=${verifyCode}`;
+
+    const emailTemplate = await render(<VerificationEmail username={user.userName} otp={verifyCode} url={verificationUrl} />);
     
-    const receiver = {
-      from: 'scrimsscrown@gmail.com',
-      to: email,
-      subject: 'Verification Code',
-      html: emailTemplate,
-    };
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_USER , // sender address
+      to: email, // list of receivers
+      subject: "Verify Your Email", // Subject line
+      html: emailTemplate, // html body
+    });
     
-    await auth.sendMail(receiver);
+    await transporter.sendMail(info);
+
+
 
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200});
   } catch (error: any) {

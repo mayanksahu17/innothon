@@ -12,8 +12,13 @@ import {
   Button,
 } from '@react-email/components';
 
+interface VerificationEmailProps {
+  username: string;
+  otp: string;
+  url:string
+}
 // Define the VerificationEmail component
-const VerificationEmail: React.FC<{ username: string; otp: string }> = ({ username, otp }) => (
+const VerificationEmail: React.FC<VerificationEmailProps> = ({ username, otp, url }) => (
   <Html lang="en" dir="ltr">
     <Head>
       <title>Verification Code</title>
@@ -41,6 +46,10 @@ const VerificationEmail: React.FC<{ username: string; otp: string }> = ({ userna
       </Row>
       <Row>
         <Text> OTP : {otp}</Text>
+      </Row>
+      <Row>
+        <Text><p>Please click the link below to verify your email:</p>
+        <a href={url}>Verify your email</a></Text>
       </Row>
       <Row>
         <Text>

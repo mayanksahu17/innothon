@@ -15,8 +15,6 @@ export interface User extends Document {
   projects : any;
   testimonials : any;
   
-
-
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -36,14 +34,14 @@ const UserSchema: Schema<User> = new Schema({
     type: String,
     required: [true, "Please provide password"],
   },
-  mobileNumber: {
-    type: Number,
-    required: [true, "Please provide mobile number"],
-  },
-  verifyCode: {
-    type: String,
-    required: [true, "Verify code is required"],
-  },
+  // mobileNumber: {
+  //   type: Number,
+  //   required: [true, "Please provide mobile number"],
+  // },
+  // verifyCode: {
+  //   type: String,
+  //   required: [true, "Verify code is required"],
+  // },
   role: {
     type: String,
     enum: ["user", "admin", "business"],

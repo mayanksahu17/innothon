@@ -14,9 +14,12 @@ export interface ProjectPost extends Document {
   fixedRate?: number;
   experienceLevel: "beginner" | "intermediate" | "expert";  // Enum for experience levels
   description: string;
+  milestone : string;
+  currentProposals : any;
   createdBy: mongoose.Types.ObjectId;  // Reference to the User who created the post
   createdAt: Date;
   updatedAt: Date;
+  
 }
 
 // Define the schema for the ProjectPost model

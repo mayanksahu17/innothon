@@ -17,6 +17,7 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-email/components": "^0.0.24",
+    "@uploadthing/react": "^6.7.2",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -33,7 +34,11 @@
     "resend": "^4.0.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+<<<<<<< HEAD
     "validator": "^13.12.0"
+=======
+    "uploadthing": "^6.13.2"
+>>>>>>> 515a9d2e3ddc216b1adfb20be14b4ab9fc936250
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

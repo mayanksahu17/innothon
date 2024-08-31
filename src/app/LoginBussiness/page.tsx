@@ -16,7 +16,17 @@ export default function Component() {
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
             Sign in to your account
           </h2>
-         
+          <p className="mt-2 text-center text-sm text-muted-foreground">
+            Are you a{" "}
+            <Link href="/SignUpAsFreelencer" className="font-medium text-primary hover:underline" prefetch={false}>
+              Freelancer
+            </Link>
+            or a{" "}
+            <Link href="/SignUpAsBussiness" className="font-medium text-primary hover:underline" prefetch={false}>
+              Business Owner
+            </Link>
+            ?
+          </p>
         </div>
         <form className="space-y-6" action="#" method="POST">
           <div>

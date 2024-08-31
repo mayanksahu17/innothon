@@ -130,14 +130,14 @@ export default function Dashboard() {
               </div>
             </div>
             <Link
-              href="/CommonSignin"
+              href="/LoginFreelencer"
               className="inline-flex h-9 w-[30%] items-center justify-center rounded-md bg-indigo-500 px-8  text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               prefetch={false}
             >
               <span>Log In</span>
             </Link>
             <Link
-              href="/CommonSignin"
+              href="/SignUpAsFreelencer"
               className="inline-flex h-9 w-[35%] items-center justify-center rounded-md bg-indigo-500 px-8  text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               prefetch={false}
             >
@@ -165,7 +165,7 @@ export default function Dashboard() {
               </p>
               <div className="flex flex-col gap-2 sm:flex-row">
                 <Link
-                  href="/commonSignin"
+                  href="/SignUpAsFreelencer"
                   className="inline-flex h-10 items-center justify-center rounded-md bg-indigo-500 
                   px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                   prefetch={false}

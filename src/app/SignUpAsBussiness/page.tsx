@@ -56,7 +56,7 @@ export default function Component() {
         </div>
         <div className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link href="loginFreelancer" className="font-medium text-primary hover:underline" prefetch={false}>
+          <Link href="/LoginBussiness" className="font-medium text-primary hover:underline" >
             Log in
           </Link>
         </div>

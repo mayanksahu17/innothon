@@ -9,7 +9,7 @@ export async function POST(request: NextRequest){
         await dbConnect();
 
         const reqBody = await request.json()
-        const {username, email, password} = reqBody
+        const {username, email, password , role } = reqBody
 
         console.log(reqBody);
 
@@ -27,7 +27,8 @@ export async function POST(request: NextRequest){
         const newUser = new User({
             username,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role
         })
 
         const savedUser = await newUser.save()

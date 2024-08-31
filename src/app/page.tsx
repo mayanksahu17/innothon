@@ -3,11 +3,13 @@ import Image from "next/image";
 import { UploadButton } from '@/utils/uploadthing';
 import { Button } from "@/components/ui/button"
 import { useState } from "react";
+import Dashboard from "@/components/Dashborad/Dashboard";
  
 export default function Home() {
   const [ imageUrl  , setImageUrl] = useState("");
   return (
     <div>
+      <Dashboard />
      <UploadButton
                className="mt-40"
                endpoint='imageUploader'
@@ -18,7 +20,7 @@ export default function Home() {
                 console.log(res[0].url);
                 console.log(imageUrl);
                 
-                                alert("Upload Completed");
+                alert("Upload Completed");
               }}
               onUploadError={(error: Error) => {
                 alert(`ERROR! ${error.message}`);

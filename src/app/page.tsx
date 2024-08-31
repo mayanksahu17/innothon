@@ -1,18 +1,29 @@
+"use client"
 import Image from "next/image";
-
-// export default function Home() {
-//   return (
-//     <h1>dekh kya rha h code kr </h1>
-//   );
-// }
-
-
+import { UploadButton } from '@/utils/uploadthing';
 import { Button } from "@/components/ui/button"
+import { useState } from "react";
  
 export default function Home() {
+  const [ imageUrl  , setImageUrl] = useState("");
   return (
     <div>
-      <Button>Click me</Button>
+     <UploadButton
+               className="mt-40"
+               endpoint='imageUploader'
+               onClientUploadComplete={async(res : any) => {
+                console.log(res);
+                
+                setImageUrl(res[0].url)
+                console.log(res[0].url);
+                console.log(imageUrl);
+                
+                                alert("Upload Completed");
+              }}
+              onUploadError={(error: Error) => {
+                alert(`ERROR! ${error.message}`);
+              }}
+               />
     </div>
   )
 }

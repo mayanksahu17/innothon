@@ -1,18 +1,10 @@
-import Image from "next/image";
-
-// export default function Home() {
-//   return (
-//     <h1>dekh kya rha h code kr </h1>
-//   );
-// }
+"use client"
+import Dashboard from "@/components/Dashborad/Dashboard"
 
 
-import { Button } from "@/components/ui/button"
- 
 export default function Home() {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+   <Dashboard/>
   )
 }
+

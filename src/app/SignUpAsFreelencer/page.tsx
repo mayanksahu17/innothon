@@ -1,9 +1,12 @@
 'use client'
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
+import axios from "axios"
+import { useState } from "react"
 
 export default function Component() {
   return (
@@ -30,7 +33,7 @@ export default function Component() {
           </Link>
         </div>
         <div>
-          <form className="space-y-4">
+          <div className="space-y-4">
             <div>
               <Label htmlFor="name">Name</Label>
               <Input id="name" type="text" placeholder="John Doe" required />
@@ -47,10 +50,12 @@ export default function Component() {
               <Checkbox id="is-freelancer" />
               <Label htmlFor="is-freelancer">Sign up as a Freelancer</Label>
             </div>
-            <Button type="submit" className="w-full">
+            <Button 
+            type="submit" 
+            className="w-full">
               Sign Up
             </Button>
-          </form>
+          </div>
         </div>
         <div className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}

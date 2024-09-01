@@ -24,7 +24,7 @@ const WorkCardDetail = () => {
         <div className=' flex '>
           <div className='flex flex-col gap-y-4 w-[50%]'>
             <div>
-              <Link href={'/'}>
+              <Link href={'/HeroFreelencer'}>
                 <ArrowLeftIcon className="h-8 w-8" />
               </Link>
             </div>

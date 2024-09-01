@@ -1,11 +1,12 @@
-import mongoose, { Schema, Document } from "mongoose";
-import { User } from "./User";
+import mongoose, { Schema } from "mongoose";
+import { User } from "./User"; // Import the User model
 
 // Define the interface for the Client model
-export interface Client extends Document {
+export interface Client extends User {
   companyName?: string;
   projectsPosted: mongoose.Types.ObjectId[]; // Projects posted by the client
   currentProjects: mongoose.Types.ObjectId[]; // Ongoing projects
+  profilePhoto?: string; // URL or path to the profile photo
 }
 
 // Define the Client schema by extending the User schema
@@ -16,12 +17,16 @@ const ClientSchema: Schema<Client> = new Schema({
   },
   projectsPosted: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Project",
+    ref: "ProjectPost", // Reference to the ProjectPost model
   }],
   currentProjects: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Project",
+    ref: "ProjectPost",
   }],
+  profilePhoto: {
+    type: String,
+    default: "",
+  },
 });
 
 // Create the Client model using the discriminator feature

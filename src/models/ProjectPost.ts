@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
+import { Client } from "./Client"; // Import the Client model
 
 // Define the interface for the ProjectPost document
 export interface ProjectPost extends Document {
@@ -12,14 +13,13 @@ export interface ProjectPost extends Document {
     to: number;
   };
   fixedRate?: number;
-  experienceLevel: "beginner" | "intermediate" | "expert";  // Enum for experience levels
+  experienceLevel: "beginner" | "intermediate" | "expert"; // Enum for experience levels
   description: string;
-  milestone : string;
-  currentProposals : any;
-  createdBy: mongoose.Types.ObjectId;  // Reference to the User who created the post
+  milestone: string;
+  currentProposals: any;
+  clientId: mongoose.Types.ObjectId; // Reference to the Client who created the post
   createdAt: Date;
   updatedAt: Date;
-  
 }
 
 // Define the schema for the ProjectPost model
@@ -30,7 +30,7 @@ const ProjectPostSchema: Schema<ProjectPost> = new Schema({
     trim: true,
   },
   skills: {
-    type: [String],  // Array of skills (strings)
+    type: [String], // Array of skills (strings)
     required: [true, "At least one skill is required"],
   },
   timePeriod: {
@@ -43,42 +43,49 @@ const ProjectPostSchema: Schema<ProjectPost> = new Schema({
   },
   budgetType: {
     type: String,
-    enum: ["Hourly", "Fixed"],  // Enum to restrict values
+    enum: ["Hourly", "Fixed"], // Enum to restrict values
     required: [true, "Budget type is required"],
   },
   hourlyRate: {
     from: {
       type: Number,
-      required: function() { return this.budgetType === "Hourly"; },
+      required: function () {
+        return this.budgetType === "Hourly";
+      },
       min: [0, "Hourly rate must be a positive number"],
     },
     to: {
       type: Number,
-      required: function() { return this.budgetType === "Hourly"; },
+      required: function () {
+        return this.budgetType === "Hourly";
+      },
       min: [0, "Hourly rate must be a positive number"],
-    }
+    },
   },
   fixedRate: {
     type: Number,
-    required: function() { return this.budgetType === "Fixed"; },
+    required: function () {
+      return this.budgetType === "Fixed";
+    },
     min: [0, "Fixed rate must be a positive number"],
   },
   experienceLevel: {
     type: String,
-    enum: ["beginner", "intermediate", "expert"],  // Enum to restrict values
+    enum: ["beginner", "intermediate", "expert"], // Enum to restrict values
     required: [true, "Experience level is required"],
   },
   description: {
     type: String,
     required: [true, "Project description is required"],
   },
-  createdBy: {
+  clientId: {
     type: Schema.Types.ObjectId,
-    ref: "User",  // Reference to the User model
-    required: [true, "Creator is required"],
-  }
+    ref: "Client",   
+ // Reference to the Client model
+    required: true,
+  },
 }, {
-  timestamps: true,  // Adds createdAt and updatedAt timestamps automatically
+  timestamps: true, // Adds createdAt and updatedAt timestamps automatically
 });
 
 // Create and export the ProjectPost model

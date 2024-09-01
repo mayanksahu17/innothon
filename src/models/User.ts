@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document,Types } from "mongoose";
 
 export interface User extends Document {
   userName: string;
@@ -7,17 +7,23 @@ export interface User extends Document {
   mobileNumber: number;
   verifyCode: string;
   role: "client" | "freelancer";
-  isVerified: boolean;
-  proposals?: mongoose.Types.ObjectId[]; // For freelancers
-  skills?: string[]; // For freelancers
-  portfolio?: string[]; // For freelancers
-  projectsPosted?: mongoose.Types.ObjectId[]; // For clients
-  notifications: string[];
-  projectHistory: mongoose.Types.ObjectId[]; // History of completed projects
-  currentProjects: mongoose.Types.ObjectId[]; // Ongoing projects
-  testimonials: { client: mongoose.Types.ObjectId, feedback: string, rating: number }[]; // Testimonials left by clients
-  rating?: number; // For freelancers
-  companyName?: string; // For clients
+  rating?: number;
+  portfolio?: string;
+  projectsPosted?: Types.ObjectId[];
+  proposals?: Types.ObjectId[];
+  companyName?: string;
+  skills?: string[];
+  isVerified?: boolean;
+  notifications?: string[];
+  projectHistory?: Types.ObjectId[];
+  currentProjects?: Types.ObjectId[];
+  testimonials?: {
+    client: Types.ObjectId;
+    feedback: string;
+    rating: number;
+  }[];
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -37,10 +43,10 @@ const UserSchema: Schema<User> = new Schema({
     type: String,
     required: [true, "Please provide a password"],
   },
-  mobileNumber: {
-    type: Number,
-    required: [true, "Please provide a mobile number"],
-  },
+  // mobileNumber: {
+  //   type: Number,
+  //   required: [true, "Please provide mobile number"],
+  // },
   verifyCode: {
     type: String,
     required: [true, "Verify code is required"],
@@ -55,8 +61,8 @@ const UserSchema: Schema<User> = new Schema({
     default: 0,
   },
   portfolio: {
-    type: [String],
-    default: [],
+    type: String,
+    default: null,
   },
   projectsPosted: [{
     type: mongoose.Schema.Types.ObjectId,

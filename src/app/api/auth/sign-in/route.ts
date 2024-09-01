@@ -11,7 +11,7 @@ export async function POST(request: Request){
         await dbConnect();
 
         const reqBody = await request.json()
-        const {email, password, username} = reqBody
+        const {email, password } = reqBody
 
         console.log(reqBody);
 
@@ -32,7 +32,8 @@ export async function POST(request: Request){
         const tokenPayload = {
             id:user._id,
             username: user.userName,
-            email:user.email
+            email:user.email,
+    
         }
 
         const token = await jwt.sign(tokenPayload, process.env.TOKEN_SECRET!, {expiresIn: '1d'})

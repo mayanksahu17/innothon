@@ -9,11 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@heroicons/react": "^2.1.5",
-=======
     "@next/swc-win32-x64-msvc": "^14.2.7",
->>>>>>> 64be7b184709079f3f79458abb8dbb4f9a6c9fa0
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
@@ -22,6 +19,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@react-email/components": "^0.0.24",
     "@uploadthing/react": "^6.7.2",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -38,11 +36,8 @@
     "resend": "^4.0.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-<<<<<<< HEAD
+    "uploadthing": "^6.13.2",
     "validator": "^13.12.0"
-=======
-    "uploadthing": "^6.13.2"
->>>>>>> 515a9d2e3ddc216b1adfb20be14b4ab9fc936250
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

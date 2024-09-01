@@ -103,7 +103,7 @@ export default function Dashboard() {
             </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost">What's New</Button>
+                <Button variant="ghost">What&apos;s New</Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48">
                 <DropdownMenuItem>
@@ -200,7 +200,7 @@ export default function Dashboard() {
               </h2>
               <p className="text-muted-foreground md:text-xl">
                 GreatWork offers a wide range of features to help you find the perfect talent for your business. From
-                advanced search to secure payments, we've got you covered.
+                advanced search to secure payments, we&apos;ve got you covered.
               </p>
               <div className="grid gap-4">
                 <div className="flex items-start gap-4">
@@ -245,7 +245,7 @@ export default function Dashboard() {
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why choose GreatWork?</h2>
               <p className="text-muted-foreground md:text-xl">
-                GreatWork is the leading platform for finding and hiring top-rated freelancers and agencies. Here's why you
+                GreatWork is the leading platform for finding and hiring top-rated freelancers and agencies. Here&apos;s why you
                 should choose us:
               </p>
               <div className="grid gap-4">
@@ -307,8 +307,8 @@ export default function Dashboard() {
               <div className="grid gap-6">
                 <div className="space-y-2">
                   <p className="text-muted-foreground md:text-xl">
-                    "GreatWork has been a game-changer for our business. We've been able to find top-quality freelancers
-                    who have helped us scale our operations."
+                  &quot;GreatWork has been a game-changer for our business. We&apos;ve been able to find top-quality freelancers
+                    who have helped us scale our operations.&quot;
                   </p>
                   <div className="flex items-center gap-2">
                     <Avatar className="h-10 w-10">
@@ -323,8 +323,8 @@ export default function Dashboard() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-muted-foreground md:text-xl">
-                    "GreatWork has been a game-changer for our business. We've been able to find top-quality freelancers
-                    who have helped us scale our operations."
+                  &quot;GreatWork has been a game-changer for our business. We&apos;ve been able to find top-quality freelancers
+                    who have helped us scale our operations.&quot;
                   </p>
                   <div className="flex items-center gap-2">
                     <Avatar className="h-10 w-10">

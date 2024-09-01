@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document,Types } from "mongoose";
 
 export interface User extends Document {
   userName: string;
@@ -6,30 +6,24 @@ export interface User extends Document {
   password: string;
   mobileNumber: number;
   verifyCode: string;
-<<<<<<< HEAD
-  registeredTournaments: string;
-  isAdmin: boolean;
-  role: string;
-  proposals : any;
-  notifications : any;
-  projectHistory : any;
-  projects : any;
-  testimonials : any;
-  
-=======
   role: "client" | "freelancer";
-  isVerified: boolean;
-  proposals?: mongoose.Types.ObjectId[]; // For freelancers
-  skills?: string[]; // For freelancers
-  portfolio?: string[]; // For freelancers
-  projectsPosted?: mongoose.Types.ObjectId[]; // For clients
-  notifications: string[];
-  projectHistory: mongoose.Types.ObjectId[]; // History of completed projects
-  currentProjects: mongoose.Types.ObjectId[]; // Ongoing projects
-  testimonials: { client: mongoose.Types.ObjectId, feedback: string, rating: number }[]; // Testimonials left by clients
-  rating?: number; // For freelancers
-  companyName?: string; // For clients
->>>>>>> 515a9d2e3ddc216b1adfb20be14b4ab9fc936250
+  rating?: number;
+  portfolio?: string;
+  projectsPosted?: Types.ObjectId[];
+  proposals?: Types.ObjectId[];
+  companyName?: string;
+  skills?: string[];
+  isVerified?: boolean;
+  notifications?: string[];
+  projectHistory?: Types.ObjectId[];
+  currentProjects?: Types.ObjectId[];
+  testimonials?: {
+    client: Types.ObjectId;
+    feedback: string;
+    rating: number;
+  }[];
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -49,25 +43,14 @@ const UserSchema: Schema<User> = new Schema({
     type: String,
     required: [true, "Please provide a password"],
   },
-<<<<<<< HEAD
   // mobileNumber: {
   //   type: Number,
   //   required: [true, "Please provide mobile number"],
   // },
-  // verifyCode: {
-  //   type: String,
-  //   required: [true, "Verify code is required"],
-  // },
-=======
-  mobileNumber: {
-    type: Number,
-    required: [true, "Please provide a mobile number"],
-  },
   verifyCode: {
     type: String,
     required: [true, "Verify code is required"],
   },
->>>>>>> 515a9d2e3ddc216b1adfb20be14b4ab9fc936250
   role: {
     type: String,
     enum: ["client", "freelancer"],
@@ -78,8 +61,8 @@ const UserSchema: Schema<User> = new Schema({
     default: 0,
   },
   portfolio: {
-    type: [String],
-    default: [],
+    type: String,
+    default: null,
   },
   projectsPosted: [{
     type: mongoose.Schema.Types.ObjectId,

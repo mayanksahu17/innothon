@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <div>
       <Dashboard />
-      <BestMatchesCard/>
-      <UploadButton
+      {/* <BestMatchesCard/> */}
+      {/* <UploadButton
         className="mt-40"
         endpoint='imageUploader'
         onClientUploadComplete={async (res: any) => {
@@ -25,10 +25,10 @@ export default function Home() {
           console.log(imageUrl);
           alert("Upload Completed");
         }}
-        // onUploadError={(error : Any) => {
-        //   alert(`ERROR! ${error.message}`);
-        // }}
-      />
+        onUploadError={(error : Any) => {
+          alert(`ERROR! ${error.message}`);
+        }}
+      /> */}
     </div>
   );
 }

@@ -83,22 +83,24 @@ export default function Dashboard() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost">Why Our Product</Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-48">
-                <DropdownMenuItem>
+              <DropdownMenuContent className="flex gap-x-36 ml-20 items-center m-4 w-[50%] p-8">
+                {/* <div className="flex items-center gap-x-"> */}
+                <DropdownMenuItem className="w-[15%] bg-blue-50 rounded-md p-2ml-5">
                   <Link href="#" prefetch={false}>
-                    Dummy Content
+                    We bring you the world’s best freelancers and agencies, meticulously vetted and rated by clients like you. Whether you need a developer, designer, marketer, or writer, our platform connects you with professionals who have proven expertise in their fields.
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem className="w-[12%]  bg-blue-50 rounded-md p-2ml-5">
                   <Link href="#" prefetch={false}>
-                    Dummy Content
+                    Our intuitive platform is designed to make collaboration effortless. From secure messaging to real-time project tracking and milestone management, we provide all the tools you need to stay aligned and on track.
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem className="w-[15%] bg-blue-50 rounded-md ml-5">
                   <Link href="#" prefetch={false}>
-                    Dummy Content
+                    No hidden fees, no surprises. Our transparent pricing structure lets you see exactly where your money is going. Choose from fixed-price projects or hourly rates, giving you the flexibility to work within your budget.
                   </Link>
                 </DropdownMenuItem>
+                {/* </div> */}
               </DropdownMenuContent>
             </DropdownMenu>
             <DropdownMenu>
@@ -155,19 +157,19 @@ export default function Dashboard() {
       <main className="flex-1">
         <section className="bg-background py-12 md:py-24">
           <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2">
+
             <div className="space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl animate-slide-in-left">
                 Find the best talent for your business
               </h1>
-              <p className="text-muted-foreground md:text-xl">
-                GreatWork connects you with top-rated freelancers and agencies for all your project needs. Post a job and
-                get matched with the perfect fit.
+              <p className="text-muted-foreground md:text-xl animate-slide-in-left delay-100">
+                GreatWork connects you with top-rated freelancers and agencies for all your project needs. Post a job and get matched with the perfect fit.
               </p>
               <div className="flex flex-col gap-2 sm:flex-row">
                 <Link
                   href="/SignUpAsFreelencer"
                   className="inline-flex h-10 items-center justify-center rounded-md bg-indigo-500 
-                  px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+      px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                   prefetch={false}
                 >
                   Get Started
@@ -175,9 +177,9 @@ export default function Dashboard() {
               </div>
             </div>
             <img
-              srcSet="/Images/discover.png"
-              width={400}
-              height={400}
+              srcSet="https://media.giphy.com/media/u1WhXLjwgcXpHJBMRM/giphy.gif?cid=790b7611wqficadxm6fps1pfrj5boyhg4nnqcq512k165m2s&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+              width={500}
+              height={500}
               alt="Hero Image"
               className="mx-auto rounded-lg object-cover"
               style={{ aspectRatio: "800/600", objectFit: "cover" }}
@@ -187,7 +189,7 @@ export default function Dashboard() {
         <section className="bg-muted py-12 md:py-24">
           <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2">
             <img
-              src="/Images/discover.png"
+              src="https://media.giphy.com/media/9LQHvkbIzTSLe/giphy.gif?cid=ecf05e47ab11z3ix1ul4iqvjovwu4ndhrxxoluxdj1h7cim4&ep=v1_gifs_related&rid=giphy.gif&ct=g"
               width={600}
               height={400}
               alt="Features Image"
@@ -283,9 +285,9 @@ export default function Dashboard() {
               </div>
             </div>
             <img
-              srcSet="/Images/discover.png"
-              width={300}
-              height={300}
+              srcSet="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif?cid=ecf05e474jdo8bchdoxun4u9f3uqcf1h6jws8ltqrnbotxtw&ep=v1_gifs_related&rid=giphy.gif&ct=g"
+              width={550}
+              height={400}
               alt="Why GreatWork"
               className="mx-auto rounded-lg object-cover"
               style={{ aspectRatio: "800/600", objectFit: "cover" }}
@@ -295,9 +297,9 @@ export default function Dashboard() {
         <section className="bg-muted py-12 md:py-24">
           <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2">
             <img
-              src="/Images/discover.png"
-              width={800}
-              height={600}
+              src="https://media.giphy.com/media/3oEjHZ3o3w7aSQPHmo/giphy.gif?cid=ecf05e47jk2ordcn0latpecwl88dnbu1d86yizt1n0q9xiho&ep=v1_gifs_related&rid=giphy.gif&ct=g"
+              width={500}
+              height={500}
               alt="Testimonials"
               className="mx-auto rounded-lg object-cover"
               style={{ aspectRatio: "800/600", objectFit: "cover" }}
@@ -328,7 +330,7 @@ export default function Dashboard() {
                   </p>
                   <div className="flex items-center gap-2">
                     <Avatar className="h-10 w-10">
-                      <AvatarImage src="/placeholder-user.jpg" alt="Avatar 2" />
+                      <AvatarImage src="/https://media.giphy.com/media/3oEjHZ3o3w7aSQPHmo/giphy.gif?cid=ecf05e47jk2ordcn0latpecwl88dnbu1d86yizt1n0q9xiho&ep=v1_gifs_related&rid=giphy.gif&ct=g" alt="Avatar 2" />
                       <AvatarFallback>JS</AvatarFallback>
                     </Avatar>
                     <div>
@@ -341,6 +343,11 @@ export default function Dashboard() {
             </div>
           </div>
         </section>
+        <button className="px-4 py-2 bg-indigo-500 text-white">
+          <Link href={'/FindProjects'}>
+            Projects
+          </Link>
+        </button>
       </main>
       <footer className="bg-muted py-6 text-sm">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row">

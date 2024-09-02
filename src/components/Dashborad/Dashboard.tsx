@@ -343,11 +343,7 @@ export default function Dashboard() {
             </div>
           </div>
         </section>
-        <button className="px-4 py-2 bg-indigo-500 text-white">
-          <Link href={'/FindProjects'}>
-            Projects
-          </Link>
-        </button>
+       
       </main>
       <footer className="bg-muted py-6 text-sm">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row">

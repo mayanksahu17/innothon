@@ -1,5 +1,5 @@
 import dbConnect  from "@/lib/dbConnect";
-import Profile from "@/models/Freelancer";
+import Profile from "@/models/Profile";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request:NextRequest){
@@ -16,15 +16,15 @@ export async function POST(request:NextRequest){
             projectDescription,
             Description } = await request.json()
 
-        console.log(name,
-            bio,
-            skills,
-            experience,
-            domain,
-            education,
-            projectTitle,
-            projectDescription,
-            Description );
+        // console.log(name,
+        //     bio,
+        //     skills,
+        //     experience,
+        //     domain,
+        //     education,
+        //     projectTitle,
+        //     projectDescription,
+        //     Description );
  
         const newProfile = new Profile({
             name,

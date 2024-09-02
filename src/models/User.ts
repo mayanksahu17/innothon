@@ -5,6 +5,9 @@ export interface User extends Document {
   email: string;
   password: string;
   mobileNumber: number;
+  avatar : string;
+  bio : string;
+  experience : string;
   verifyCode: string;
   role: "client" | "freelancer";
   rating?: number;
@@ -25,6 +28,25 @@ export interface User extends Document {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+
+
+
+
+// name,
+// imageUrl/ avatar,
+// bio, 
+// skills,
+// experience,
+// projectTitle,    
+// projectDescription,
+// techStacks,
+// degree,
+// school,
+// graduationYear,
+// language,
+
+
 
 const UserSchema: Schema<User> = new Schema({
   userName: {
@@ -100,15 +122,15 @@ const UserSchema: Schema<User> = new Schema({
     client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User", // Refers to the client who gave the testimonial
-      required: true,
+     
     },
     feedback: {
       type: String,
-      required: true,
+     
     },
     rating: {
       type: Number,
-      required: true,
+   
     },
   }],
 }, { timestamps: true });

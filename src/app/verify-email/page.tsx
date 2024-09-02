@@ -2,30 +2,32 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
+import axios from 'axios';
+import { log } from 'console';
+import { useRouter } from 'next/navigation';
+import { Router } from 'next/router';
 
 const VerifyEmail = () => {
   const notVerify = () => toast.error("Email Not Verified");
   const verify = () => toast.success("Email Verified");
   const [otp, setOtp] = useState('');
+  const router = useRouter()
   const [verificationStatus, setVerificationStatus] = useState<boolean | null>();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`/api/verify-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ otp }),
-      });
+      const response = await axios.post("/api/auth/verify-email",{otp})
 
-      const data = await response.json();
+      const data = response.data
+      console.log(data);
+      
 
-      if (response.ok) {
+      if (data.success) {
         setVerificationStatus(true);
         verify(); // Trigger success toast
+        router.push("/CreateFreelencerProfile")
       } else {
         setVerificationStatus(false);
         notVerify(); // Trigger error toast

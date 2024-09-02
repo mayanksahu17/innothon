@@ -66,7 +66,7 @@ export interface profile extends Document {
   experience: string;
   domain:string;
   education: string;
-  projectTitle:string;
+  projectTitle:string;  
   projectDescription:string;
   
 }

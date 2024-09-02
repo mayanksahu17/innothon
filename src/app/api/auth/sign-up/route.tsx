@@ -11,9 +11,8 @@ export async function POST(request:NextRequest){
         await dbConnect(); 
 
         const {userName, email, password , role } = await request.json()
-        // const {userName, email, password , role } = reqBody
+       
 
-        console.log(userName, email, password , role );
  
         const user = await User.findOne({email})
 
@@ -35,7 +34,6 @@ export async function POST(request:NextRequest){
         })
 
         const savedUser = await newUser.save()
-        console.log(savedUser);
         
         const transporter = nodemailer.createTransport({
             service: 'gmail',

@@ -19,11 +19,12 @@ export async function POST(req: NextRequest) {
     }
 
     user.isVerified = true;
-    user.verifyCode = ''; // Clear the verification code
+    user.verifyCode = Math.floor(100000 +   Math.random() * 900000).toString();
+; // Clear the verification code
     await user.save();
 
-    return NextResponse.json({ message: 'User verified successfully' }, { status: 200 });
+    return NextResponse.json({ success : true , message: 'User verified successfully' }, { status: 200 });
   } catch (error: any) {
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }

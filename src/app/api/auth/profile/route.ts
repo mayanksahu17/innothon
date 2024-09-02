@@ -1,7 +1,6 @@
 import { NextRequest } from "next/server";
 import dbConnect from "@/lib/dbConnect";
-// import { Freelancer } from "@/models/Freelancer";
-
+import {User} from "@/models/User"
 export default async function POST(req:NextRequest) {
     const {
         name,

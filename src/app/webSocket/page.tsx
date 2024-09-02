@@ -14,14 +14,14 @@ const getUserData = () => ({
 export default function ChatComponent() {
   const { sendMessage, messages } = useSocket();
   const [message, setMessage] = useState("");
-  const [userData, setUserData] = useState({ username: localStorage.getItem("name") as string, avatarUrl: "" });
+  const [userData, setUserData] = useState({ username : "John", avatarUrl: "" });
 
   useEffect(() => {
     // Fetch user data once when the component mounts
     // localStorage.setItem("name","mayank")
 
-    const data = getUserData();
-    setUserData(data);
+    // const data = getUserData();
+    // setUserData(data);
   }, []);
 
   const handleSendMessage = () => {
